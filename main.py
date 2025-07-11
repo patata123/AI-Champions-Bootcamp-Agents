@@ -1,16 +1,19 @@
+import streamlit as st
 from crew import create_crew
 from tools import JDSearchTool
 
-def main():
-    query = input("Ask a question about financial services job roles: ")
+st.title("Financial Services Job Role Q&A")
+
+query = st.text_input("Ask a question about financial services job roles:")
+
+if query:
     retriever = JDSearchTool()
     docs = retriever.search(query, k=3)
     context = "\n\n".join([doc.page_content for doc in docs])
 
     crew = create_crew(query, context)
-    result = crew.kickoff()
+    with st.spinner("Generating answer..."):
+        result = crew.kickoff()
 
-    print("\n✅ Answer:\n", result)
-
-if __name__ == "__main__":
-    main()
+    st.success("✅ Answer:")
+    st.write(result)
