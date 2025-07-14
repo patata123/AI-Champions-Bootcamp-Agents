@@ -1,7 +1,7 @@
 from crewai import Agent
 from langchain_openai import ChatOpenAI
 
-llm = ChatOpenAI(temperature=0, model_name="gpt-4o-mini")
+llm = ChatOpenAI(temperature=0, model="gpt-4o-mini")
 
 qa_agent = Agent(
     role="Question Answerer",

@@ -16,4 +16,4 @@ if query:
         result = crew.kickoff()
 
     st.success("✅ Answer:")
-    st.write(result)
+    st.write(getattr(result, "raw", result))

@@ -1,5 +1,7 @@
 from crewai import Task
 from agents import qa_agent
+from dotenv import load_dotenv
+load_dotenv('.env')
 
 def define_tasks(query, retrieved_docs):
     qa_task = Task(
@@ -9,7 +11,7 @@ Context:
 {retrieved_docs}
 """,
         expected_output="A concise and accurate answer based on the job descriptions.",
-        agent=qa_agent
+        agent=qa_agent,
     )
 
     return [qa_task]
