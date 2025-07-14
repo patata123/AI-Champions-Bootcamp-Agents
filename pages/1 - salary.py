@@ -1,15 +1,16 @@
 import streamlit as st
+from crew import create_scrape_crew
 
-st.title("Financial Services Salary Data")
+st.title("Financial Services Job Role Salary")
 
-# Example salary data (replace with your real data source)
-salary_data = [
-    {"Role": "Financial Analyst", "Average Salary": "$70,000"},
-    {"Role": "Investment Banker", "Average Salary": "$120,000"},
-    {"Role": "Risk Manager", "Average Salary": "$90,000"},
-]
+job_role = st.text_input("Input financial services job role:")
 
-st.write("Here is some example salary data for financial services roles:")
+if job_role:
+    # Construct a search URL for the job role (example: MyCareersFuture Singapore)
+    url = f"https://www.mycareersfuture.gov.sg/search?search={job_role}"
+    crew = create_scrape_crew(url)
+    with st.spinner("Scraping salary data..."):
+        result = crew.kickoff(inputs={"url": url})
 
-for item in salary_data:
-    st.write(f"**{item['Role']}**: {item['Average Salary']}") 
+    st.success("✅ Salary Data:")
+    st.write(getattr(result, "raw", result))
