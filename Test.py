@@ -9,8 +9,13 @@ from langchain_openai import ChatOpenAI
 from crewai.tools import tool  # this is the compatible @tool decorator
 import pandas as pd
 import requests
+import streamlit as st
 
-load_dotenv('.env')
+if load_dotenv('.env'):
+   # for local development
+   OPENAI_KEY = os.getenv('OPENAI_API_KEY')
+else:
+   OPENAI_KEY = st.secrets['OPENAI_API_KEY']
 
 # -----------------------
 # Tools

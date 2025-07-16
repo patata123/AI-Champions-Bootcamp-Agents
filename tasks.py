@@ -1,8 +1,15 @@
+import os
 from crewai import Task
 from agents import qa_agent
 from agents import web_scraper_agent
 from dotenv import load_dotenv
-load_dotenv('.env')
+from streamlit import st
+
+if load_dotenv('.env'):
+   # for local development
+   OPENAI_KEY = os.getenv('OPENAI_API_KEY')
+else:
+   OPENAI_KEY = st.secrets['OPENAI_API_KEY']
 
 def define_tasks(query, retrieved_docs):
     qa_task = Task(
