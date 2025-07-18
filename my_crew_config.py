@@ -1,7 +1,3 @@
-__import__('pysqlite3')
-import sys
-sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
-
 from crewai import Crew
 from tasks import define_tasks
 from agents import qa_agent
