@@ -1,6 +1,9 @@
 import streamlit as st
 from my_crew_config import create_crew
 from tools import JDSearchTool
+__import__('pysqlite3')
+import sys
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 
 # Custom CSS for style
 st.markdown("""
