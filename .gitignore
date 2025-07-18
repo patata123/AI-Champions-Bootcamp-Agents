@@ -1,5 +1,4 @@
 .env
 job_descriptions/*.xlsx
 __pycache__/
-chroma_db/
 *.db
