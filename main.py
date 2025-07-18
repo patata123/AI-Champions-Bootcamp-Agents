@@ -5,6 +5,12 @@ sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 import streamlit as st
 from my_crew_config import create_crew
 from tools import JDSearchTool
+import streamlit as st  
+from utility import check_password  
+
+# Check if the password is correct.  
+if not check_password():  
+    st.stop()
 
 # Custom CSS for style
 st.markdown("""

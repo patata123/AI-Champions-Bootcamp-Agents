@@ -1,5 +1,11 @@
 import streamlit as st
 from my_crew_config import create_scrape_crew
+import streamlit as st  
+from utility import check_password  
+
+# Check if the password is correct.  
+if not check_password():  
+    st.stop()
 
 # Custom CSS for style
 st.markdown("""
