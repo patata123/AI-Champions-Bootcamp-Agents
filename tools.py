@@ -22,7 +22,7 @@ def firecrawl_scrape(url: str) -> str:
         if not url:
             return "Missing 'url' parameter."
 
-        app = FirecrawlApp(api_key="fc-f93ad43600c74f669c003bf1183019a2")
+        app = FirecrawlApp()
         result = app.scrape_url(url, formats=["markdown"])
         return str(result)
 
