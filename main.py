@@ -1,5 +1,5 @@
 import streamlit as st
-from crew import create_crew
+from my_crew_config import create_crew
 from tools import JDSearchTool
 
 # Custom CSS for style

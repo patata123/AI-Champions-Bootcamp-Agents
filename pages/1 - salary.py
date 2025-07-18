@@ -1,5 +1,5 @@
 import streamlit as st
-from crew import create_scrape_crew
+from my_crew_config import create_scrape_crew
 
 # Custom CSS for style
 st.markdown("""
@@ -22,7 +22,7 @@ if submitted and job_role:
     url = f"https://www.mycareersfuture.gov.sg/search?search={job_role}"
     crew = create_scrape_crew(url)
     with st.spinner("🔄 Scraping salary data..."):
-        result = crew.kickoff(inputs={"url": url})
+        result = crew.kickoff()
 
     st.success("✅ Salary Data:")
     # Try to display as a table if possible

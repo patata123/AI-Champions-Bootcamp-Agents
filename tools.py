@@ -1,5 +1,7 @@
 from langchain.vectorstores import Chroma
 from langchain.embeddings import OpenAIEmbeddings
+from crewai.tools import tool
+from firecrawl.firecrawl import FirecrawlApp
 
 class JDSearchTool:
     def __init__(self, persist_directory="chroma_db"):
@@ -10,3 +12,19 @@ class JDSearchTool:
 
     def search(self, query, k=3):
         return self.vectorstore.similarity_search(query, k=k)
+
+
+@tool("Custom Firecrawl Scraper")
+def firecrawl_scrape(url: str) -> str:
+    """Scrapes content from a URL using the Firecrawl API and returns markdown output.
+    """
+    try:
+        if not url:
+            return "Missing 'url' parameter."
+
+        app = FirecrawlApp(api_key="fc-f93ad43600c74f669c003bf1183019a2")
+        result = app.scrape_url(url, formats=["markdown"])
+        return str(result)
+
+    except Exception as e:
+        return f"Scraping failed: {str(e)}"

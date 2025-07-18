@@ -21,3 +21,6 @@ def create_scrape_crew(url):
         verbose=True
     )
     return crew
+
+def print_crew():
+    print("Crew created")
