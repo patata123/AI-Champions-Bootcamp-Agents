@@ -2,6 +2,8 @@ import streamlit as st
 from my_crew_config import create_scrape_crew
 import streamlit as st  
 from utility import check_password  
+import pandas as pd
+import io
 
 # Check if the password is correct.  
 if not check_password():  
@@ -33,7 +35,14 @@ if submitted and job_role:
     st.success("✅ Salary Data:")
     # Try to display as a table if possible
     if hasattr(result, "raw") and isinstance(result.raw, str) and result.raw.strip().startswith("|"):
-        st.markdown(result.raw)
+        # Try to parse Markdown table to DataFrame
+        try:
+            df = pd.read_csv(io.StringIO(result.raw), sep="|", engine="python", skipinitialspace=True)
+            # Drop empty columns from Markdown parsing
+            df = df.loc[:, ~df.columns.str.strip().eq("")]
+            st.dataframe(df)
+        except Exception:
+            st.markdown(result.raw)
     else:
         st.write(getattr(result, "raw", result))
 
