@@ -31,13 +31,13 @@ st.write("""
 
 st.markdown('<div class="section-title">Data Sources</div>', unsafe_allow_html=True)
 st.write("""
-- **Job Descriptions:** Retrieved from curated datasets and/or scraped from relevant job portals.
+- **Job Descriptions:** Retrieved from Skills Future Framework for Financial Services.
 - **Salary Data:** Scraped from [MyCareersFuture Singapore](https://www.mycareersfuture.gov.sg/).
 """)
 
 st.markdown('<div class="section-title">Features</div>', unsafe_allow_html=True)
 st.write("""
-- **Q&A Agent:** Answers user questions based on real job descriptions.
+- **Q&A Agent:** Answers user questions based on curated job descriptions.
 - **Salary Scraper:** Extracts and displays salary tables for selected job roles.
 - **Context Viewer:** Shows the source job descriptions used for answers.
 - **Secure Access:** Password-protected pages for authorized use.
