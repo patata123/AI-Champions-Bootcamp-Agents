@@ -11,6 +11,10 @@ st.markdown("""
 st.markdown('<div class="main-title">🔬 Methodology</div>', unsafe_allow_html=True)
 
 st.markdown('<div class="section-title">Data Flow Overview</div>', unsafe_allow_html=True)
+
+# Display your own flowchart image (replace with your actual file path)
+st.image("./charts/Financial Job Q&A.drawio.png", caption="System Data Flow", use_column_width=True)
+
 st.write("""
 1. **User Query Input:**  
    Users enter questions or select job roles via the Streamlit interface.

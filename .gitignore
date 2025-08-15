@@ -2,3 +2,4 @@
 job_descriptions/*.xlsx
 __pycache__/
 *.db
+.venv/
