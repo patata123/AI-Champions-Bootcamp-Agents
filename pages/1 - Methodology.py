@@ -13,9 +13,9 @@ st.markdown('<div class="main-title">🔬 Methodology</div>', unsafe_allow_html=
 st.markdown('<div class="section-title">Data Flow Overview</div>', unsafe_allow_html=True)
 
 # Display your own flowchart image (replace with your actual file path)
-st.image("./charts/Financial Job Q&A.drawio.png", caption="Financial Role Q&A Data Flow", use_column_width=True)
+st.image("./charts/Financial Job Q&A.drawio.png", caption="Financial Role Q&A Data Flow", use_container_width=True)
 
-st.image("./charts/Salary.drawio.png", caption="Financial Role Salary Data Flow", use_column_width=True)
+st.image("./charts/Salary.drawio.png", caption="Financial Role Salary Data Flow", use_container_width=True)
 
 st.write("""
 1. **User Query Input:**  
